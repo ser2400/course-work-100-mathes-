@@ -5,16 +5,16 @@ CFLAGS  = -Wall -Werror -std=gnu11
 
 all: bin build default test
 
-default: bin/turnset
+default: bin/base
 
-test: bin/turnset-test
-	bin/turnset-test
+test: bin/base-test
+	bin/base-test
 
-bin/turnset: build/main.o build/Funcs.o  build/Funcs_2.o bin
-	$(CC) $(CFLAGS) build/main.o build/Funcs.o  build/Funcs_2.o -o bin/turnset
+bin/base: build/Base.o build/Funcs.o  build/Funcs_2.o bin
+	$(CC) $(CFLAGS) build/Base.o build/Funcs.o  build/Funcs_2.o -o bin/base
 
-build/main.o: src/main.c src/Funcs.h  src/Funcs_2.h build
-	$(CC) $(CFLAGS) -c src/main.c -o build/main.o
+build/Base.o: src/Base.c src/Funcs.h  src/Funcs_2.h build
+	$(CC) $(CFLAGS) -c src/Base.c -o build/Base.o
 
 build/Funcs.o: src/Funcs.c src/Funcs.h  src/Funcs_2.h build
 	$(CC) $(CFLAGS) -c src/Funcs.c -o build/Funcs.o
@@ -22,12 +22,12 @@ build/Funcs.o: src/Funcs.c src/Funcs.h  src/Funcs_2.h build
 build/Funcs_2.o: src/Funcs_2.c src/Funcs.h build
 	$(CC) $(CFLAGS) -c src/Funcs_2.c -o build/Funcs_2.o
 
-bin/turnset-test: build/main_test.o build/Funcs.o  build/Funcs_2.o bin
-	$(CC) $(CFLAGS) build/main_test.o build/Funcs.o  build/Funcs_2.o -o bin/turnset-test
+bin/base-test: build/Base_test.o build/Funcs.o  build/Funcs_2.o bin
+	$(CC) $(CFLAGS) build/Base_test.o build/Funcs.o  build/Funcs_2.o -o bin/base-test
 
 
-build/main_test.o: test/main.c thirdparty/ctest.h src/Funcs.h src/Funcs_2.h build
-	$(CC) $(CFLAGS) -I thirdparty -I src  -c test/main.c -o build/main_test.o
+build/Base_test.o: test/Base.c thirdparty/ctest.h src/Funcs.h src/Funcs_2.h build
+	$(CC) $(CFLAGS) -I thirdparty -I src  -c test/Base.c -o build/Base_test.o
 
 build:
 	mkdir build
