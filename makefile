@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS= -c -Wall
-Base.exe:Base.cpp
-  $(CC) $(CFLAGS) Base.cpp
+all:
+  g++ main.cpp hello.cpp factorial.cpp -o hello
 
 
 
