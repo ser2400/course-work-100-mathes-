@@ -21,3 +21,14 @@ int getStickN(int playern, int stickcount) {
         return n ;
     }
 }
+
+void goGame() {
+    int stickcount = 100 ;
+    int playern = 1 ;
+    while (stickcount>0) {
+       printf("Òåêóùåå ÷èñëî ñïè÷åê: %d\n",stickcount) ;
+       int n = getStickN(playern,stickcount);
+       stickcount-=n ;
+       if (playern==1) playern=2 ;
+       else playern=1 ;
+    }
