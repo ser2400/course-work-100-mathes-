@@ -8,7 +8,6 @@ all: bin build default test
 default: bin/base
 
 test: bin/base-test
-	bin/base-test
 
 bin/base:   build/Base.exe build/Funcs.o  build/Funcs_2.o bin
 	$(CC) $(CFLAGS) build/Base.exe build/Funcs.o  build/Funcs_2.o -o bin/base
