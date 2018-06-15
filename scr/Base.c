@@ -38,7 +38,7 @@ int main()
     setlocale(LC_ALL,"Russian");
     
 printf("Full screen (back) alt+enter") ;
-printf("\n\n\n\n		game '100 matches'") ;
+printf("\n\n\n\n		Game '100 matches'") ;
     while (1) {
         printf("\n\n		Main menu\n") ;
         printf("		1 - Regulation\n		2 - Play\n		0 - exit\n") ;
