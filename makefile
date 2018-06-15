@@ -10,11 +10,11 @@ default: bin/base
 test: bin/base-test
 	bin/base-test
 
-bin/base: build/Base.o build/Funcs.o  build/Funcs_2.o bin
-	$(CC) $(CFLAGS) build/Base.o build/Funcs.o  build/Funcs_2.o -o bin/base
+bin/base: build/Base.exe build/Funcs.o  build/Funcs_2.o bin
+	$(CC) $(CFLAGS) build/Base.exe build/Funcs.o  build/Funcs_2.o -o bin/base
 
-build/Base.o: src/Base.c src/Funcs.h  src/Funcs_2.h build
-	$(CC) $(CFLAGS) -c src/Base.c -o build/Base.o
+build/Base.exe: src/Base.c src/Funcs.h  src/Funcs_2.h build
+	$(CC) $(CFLAGS) -c src/Base.c -o build/Base.exe
 
 build/Funcs.o: src/Funcs.c src/Funcs.h  src/Funcs_2.h build
 	$(CC) $(CFLAGS) -c src/Funcs.c -o build/Funcs.o
