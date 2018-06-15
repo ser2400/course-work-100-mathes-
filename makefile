@@ -13,8 +13,8 @@ test: bin/base-test
 bin/base: build/Base.exe build/Funcs.o  build/Funcs_2.o bin
 	$(CC) $(CFLAGS) build/Base.exe build/Funcs.o  build/Funcs_2.o -o bin/base
 
-build/Base.exe: src/Base.c src/Funcs.h  src/Funcs_2.h build
-	$(CC) $(CFLAGS) -c src/Base.c -o build/Base.exe
+build/Base.exe: src/Funcs.h  src/Funcs_2.h build
+	$(CC) $(CFLAGS) -c -o build/Base.exe
 
 build/Funcs.o: src/Funcs.c src/Funcs.h  src/Funcs_2.h build
 	$(CC) $(CFLAGS) -c src/Funcs.c -o build/Funcs.o
