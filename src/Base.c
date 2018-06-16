@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 int isInt(char * buf) {
     int i ;
     for (i=0; i<strlen(buf); i++)
@@ -11,13 +12,17 @@ int isInt(char * buf) {
     	return 1 ;
 }
 
+
 int getStickN(int playern, int stickcount) {
     int n ;
     while (1) {
         printf("\n\n\n\n		Player N%d, enter the number of matches you take:>",playern) ;
+       
         fflush(stdin) ;
+        
         char buf[32] ;
         scanf("%s",buf) ;
+        
         fflush(stdin) ;
 
         if (isInt(buf)==0)
@@ -68,7 +73,7 @@ printf("\n\n\n\n		Game '100 matches'") ;
         sel = atoi(buf) ;
         if (sel==0) 
 			break ; 
-		else
+		else 
         if (sel==1) {
             printf("	Rules of the game: 100 matches on the table. In turn, players will take from 1 to 10 matches. The one who takes the last match loses.\n") ;
         }
