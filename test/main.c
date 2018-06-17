@@ -1,6 +1,4 @@
-#include "ctest.h"
-#include "base.c"
-
+#include "ctest"
 
 CTEST(Input_test, take_1_match_Count_100)
 {
