@@ -1,24 +1,31 @@
+#Makefile
+
 .PHONY: all clean
 
-base:	mkDir base.o
-	gcc build/src/base.o -o bin/100sp
+all: bin build base
 
-base.o:	src/base.c
-	gcc -Wall -c src/base.c -o build/src/base.o
+base:	build/src/base.o build/src/functions.o
+	gcc build/src/base.o build/src/functions.o -o bin/100sp
+
+build/src/base.o: src/base.c src/functions.h
+	gcc -Wall -c src/base.c -o $@
+
+build/src/functions.o:	src/functions.c src/functions.h
+	gcc -Wall -c src/functions.c -o $@
 
 clean:
-	rm -r build
+	rm -rf build bin
 
-mkDir:
+bin:
 	mkdir bin
-	mkdir build
-	mkdir build/src
 
-rmDir: 
-	rm -r bin
-	rm -r build
+build:
+	mkdir -p build/src
 
-tests: build/test/main.o
+build_t:
+	mkdir -p build/test
+
+test: build/test/main.o build_t
 	gcc build/test/main.o -o bin/tests
 
 build/test/main.o: test/main.c

@@ -1,12 +1,10 @@
 #include "ctest.h"
-#include "base.c"
-
 
 CTEST(Input_test, take_1_match_Count_100)
 {
 	const int Num = 2;
 	const int Count = 100;
-	const int result = Input(Num, Count);
+	const int result = getStickN(Num, Count);
 	const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
