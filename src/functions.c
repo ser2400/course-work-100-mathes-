@@ -1,25 +1,36 @@
 #include "functions.h"
 #include <stdio.h>
 
-int getStickN(int playern, int stickcount) {
+int check(int n, int stickcount)
+{
+    if (n > stickcount) {
+        printf("\nYou can't have more than that on the table.!\n") ;
+    } else if ((n < 1) || (n > 10)) {
+                printf("\nYou need to enter from 1 to 10!\n") ;
+            } else {
+
+                return 1;
+            }
+
+    return 0;
+}
+
+int getStickN(int playern, int stickcount)
+{
     int n ;
+
     while (1) {
         printf("\n\n\n\n\t\tPlayer N%d, enter the number of matches you take:>",playern) ;
         fflush(stdin) ;
-        
+
         scanf("%d",&n) ;
         fflush(stdin) ;
-
-	        if (n>stickcount) {
-				printf("\tYou can't have more than that on the table.!\n") ;
-			}
-	        else
-		        if ((n<1)||(n>10)) {
-		            printf("\t\tYou need to enter from 1 to 10!\n") ;
-		        }
-		        else
-		        return n ;
+        if (check(n, stickcount)) {
+            return n;
+        }
     }
+
+    return 0;
 }
 
 void goGame() {

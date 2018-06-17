@@ -2,9 +2,9 @@
 
 .PHONY: all clean
 
-all: bin build base
+all: base
 
-base:	build/src/base.o build/src/functions.o
+base:	clean build bin build/src/base.o build/src/functions.o
 	gcc build/src/base.o build/src/functions.o -o bin/100sp
 
 build/src/base.o: src/base.c src/functions.h
@@ -22,11 +22,21 @@ bin:
 build:
 	mkdir -p build/src
 
+test: bin/main_test
+	bin/main_test
+
+bin/main_test: bin build_t build/test/main.o build/test/functions.o
+	gcc build/test/main.o build/test/functions.o -o bin/main_test
+
+build/test/main.o: test/main.c src/functions.h
+	gcc -I src -c test/main.c -o build/test/main.o
+
+build/test/base.o: src/base.c src/functions.h
+	gcc -Wall -c src/base.c -o $@
+
+build/test/functions.o:	src/functions.c src/functions.h
+	gcc -Wall -c src/functions.c -o $@
+
+
 build_t:
 	mkdir -p build/test
-
-test: build/test/main.o build_t
-	gcc build/test/main.o -o bin/tests
-
-build/test/main.o: test/main.c
-	gcc -I src -c test/main.c -o build/test/main.o

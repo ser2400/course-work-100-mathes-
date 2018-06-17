@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "functions.h"
+
 int main()
 {
 	printf("Full screen (back) alt+enter\n\n\n\n\t\tGame '100 matches'") ;
