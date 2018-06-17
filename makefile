@@ -1,23 +1,20 @@
-CC = gcc
-CFLAGS  = -Wall -Werror -std=gnu11
+.PHONY: all clean
 
-.PHONY: clean
+base:	mkDir base.o
+	gcc build/src/base.o -o bin/100sp
 
-all: bin build default test
-
-default: bin/base
-
-bin/base:   build/Base.exe bin
-	$(CC) $(CFLAGS) build/Base.exe -o bin/base
-
-build/Base.exe: src/Base.c build
-	$(CC) $(CFLAGS) -c src/Base.c -o build/Base.exe
-
-build:
-	mkdir build
-
-bin:
-	mkdir bin
+base.o:	src/base.c
+	gcc -Wall -c src/base.c -o build/src/base.o
 
 clean:
-	rm -rf build bin
+	rm -r build
+
+mkDir:
+	mkdir bin
+	mkdir build
+	mkdir build/src
+
+rmDir: 
+	rm -r bin
+	rm -r build
+

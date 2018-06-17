@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <locale.h>
 
 int getStickN(int playern, int stickcount) {
     int n ;
@@ -35,7 +34,6 @@ void goGame() {
 
 int main()
 {
-    setlocale(LC_ALL,"Russian");
     
 printf("Full screen (back) alt+enter") ;
 printf("\n\n\n\n		Game '100 matches'") ;
@@ -53,3 +51,5 @@ printf("\n\n\n\n		Game '100 matches'") ;
     }
     return 0 ;
 }
+
+
